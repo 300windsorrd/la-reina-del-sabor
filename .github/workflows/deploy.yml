@@ -32,6 +32,14 @@ jobs:
       
       - name: Build static site
         run: npm run build:static
+        env:
+          NODE_ENV: production
+      
+      - name: Copy .nojekyll file
+        run: cp .nojekyll out/
+      
+      - name: List build output
+        run: ls -la out/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
